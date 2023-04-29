@@ -1,0 +1,194 @@
+/* Your sheet CSS file: */
+
+/* Rules  outside any media query will apply on any
+
+Device Type*/
+.highlight {
+    font-size: 1rem;
+}
+
+@media print {orientation: landscape} {
+    /* Rules that will only take effect when printing your sheet
+    on landscape orientation. */
+    html {
+          Font-size: 12pt;
+    }
+    .highlight {
+          color: black;
+          font-weight: bold;
+    }
+}
+
+@media print (orientation: portrait) {
+    /* Rules that will only take effect when printing your sheet
+    in portrait mode. This is the default mode for most printers */
+}
+
+@media screen {
+    /* Rules that will only take effect when seeing your
+    character on a screen (Computer, Mobile). */
+    html {
+          Font-size: 14px;
+    }
+    .highlight {
+          color: red;
+    }
+}
+
+/* Set the min-width so that when the window is resized the look will stay consistant */
+
+.charsheet {
+	min-width: 800px;
+}
+
+/* Universal styling applied to all elements of these types */
+
+h2 {
+	font-size: 2em;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+label {
+	display: inline-block;
+	width: 31%;
+}
+
+input {
+	display: inline-block;
+	width: 165px;
+}
+
+img {
+	max-height: 100px;
+}
+
+textarea {
+	resize: vertical;
+}
+
+/*Configure the tab buttons*/
+.charsheet .sheet-character,
+.charsheet .sheet-spells,
+.charsheet .sheet-npc {
+    display: none;
+}
+
+/* show the selected tab */
+.charsheet .sheet-tabstoggle[value="character"] ~ div.sheet-character,
+.charsheet .sheet-tabstoggle[value="spells"] ~ div.sheet-spells,
+.charsheet .sheet-tabstoggle[value="npc"] ~ div.sheet-npc {
+    display: block;
+}
+
+/* Character Sheet Level Styling */
+input.char_name {
+    text-align: center;
+    color: rgb(55, 0, 255);
+}
+
+th, td {
+    padding: 2px;
+  }
+
+button.roll_initiative {
+    color: green;
+}
+
+input.char_health_display {
+    text-align: center;
+    font-size: x-large;
+    color: red;
+}
+input.char_defense {
+    text-align: center;
+    font-size: x-large;
+    color: rgb(184, 158, 13);
+}
+
+.free_carry {
+    width:350px;
+}
+
+select.hd_dropdown {
+    width:auto;
+}
+
+select.armor_dropdown {
+    width:auto;
+}
+
+select.alignment_dropdown {
+    width:auto;
+}
+
+/* Attack field Styling */
+.atk_name{
+    width:100px;
+}
+
+select.dtype {
+    width:auto;
+}
+
+select.atk_mod {
+    width:auto;
+}
+.atk_damage{
+    width:88px;
+}
+
+/* Styling for Spells Sheet */
+select.spell_atk_mod {
+    width:auto;
+}
+
+select.spell_range {
+    width:auto;
+}
+
+select.spell_dtype {
+    width:auto;
+}
+
+.spell_name{
+    width:150px;
+}
+
+.spell_duration{
+    width:88px;
+}
+
+.char_spell_description{
+    width:550px;
+}
+.add_spell_damage{
+    width:88px;
+}
+
+/* Styling for NPC Sheet */
+.npc_description{
+    width:550px;
+}
+
+button.npc_roll_initiative {
+    color: green;
+}
+
+.npc_ability{
+    width:500px;
+}
+
+input.npc_health_display {
+    text-align: center;
+    font-size: x-large;
+    color: red;
+}
+input.npc_defense {
+    text-align: center;
+    font-size: x-large;
+    color: rgb(184, 158, 13);
+}
+select.npc_alignment_dropdown {
+    width:auto;
+}
