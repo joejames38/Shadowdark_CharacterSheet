@@ -4,92 +4,64 @@
     For the Shadowdark RPG by the Arcane Library and submitted with 3pp licensure of rules use. 
  -->
 <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab"  value="character"  />
-<div>
-    <button type="action" name="act_character">Character</button>
-    <button type="action" name="act_spells">Spells</button>
-    <button type="action" name="act_npc">NPC</button>
+<div class="page-buttons">
+    <button class="button-style" type="action" name="act_character">Character</button>
+    <button class="button-style" type="action" name="act_spells">Spells</button>
+    <button class="button-style" type="action" name="act_npc">NPC</button>
 </div>
 <div class="sheet-character">
-    <h1 style="font-family: luminari, fantasy;">Shadowdark RPG</h1>
-    <div class="header_table">
-        <table class="char_table" style="background-color:#f7a3a3">
-            <tr>
-                <td></td>
-                <td>Title</td>
-                <td><input type="text" name="attr_char_title"/></td>
-                <td>Name</td>
-                <td><input type="text" name="attr_char_name" class="char_name"/></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Ancestry</td>
-                <td><input type="text" name="attr_char_ancestry"/></td>
-                <td>Background</td>
-                <td><input type="text" name="attr_char_background"/></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Diety</td>
-                <td><input type="text" name="attr_char_diety"/></td>
-                <td>Class</td>
-                <td><input type="text" name="attr_char_class"/></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Alignment</td>
-                <td>
-                    <select class="alignment_dropdown" name="attr_char_alighnment">
-                    <option value="chaotic">Chaotic</option>
-                    <option value="lawful">Lawful</option>
-                    <option value="neutral">Neutral</option>
-                    </select>
-                    <b>&ensp;Luck Point <input type="checkbox" name="attr_char_luck_point"></b>
-                </td>
-                <td>Level</td>
-                <td>
-                    <input type="number" min="0" max="10" step="1" name="attr_char_level"/>
-                    XP Needed <input type="number" name="attr_XP_Need" value="(@{char_level}*10)" disabled="true">
-                    Current XP <input type="number" min="0" step="1" name="attr_char_xp_current"/>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <h2 style="font-family: luminari, fantasy;">Stats</h2>
-    Hit Die
-    <select class="hd_dropdown" name="attr_char_hd">
-        <option value="d4">1d4</option>
-        <option value="d6">1d6</option>
-        <option value="d8">1d8</option>
-        <option value="d10">1d10</option>
-        <option value="d12">1d12</option>
-    </select>
-    Max HP <input type="number" min="1" step="1" name="attr_char_max_hp"/>
-    Languages <input type="text" name="attr_char_languages" placeholder="Common"/>
+    <span style="font-family: luminari, fantasy; font-size: 30px;">Shadowdark RPG</span>
     <br>
-    <b>HP </b><input type="number" min="0" max="@{char_max_hp}" step="1" name="attr_char_hp" class="char_health_display"/>
-    <b>AC </b><input type="number" min="0" step="1" name="attr_char_AC" placeholder="10+@{char_DexMod}" class="char_defense"/>
-    <select class="armor_dropdown" name="attr_char_armor">
-        <option value="none">None (10 + Dex Mod)</option>
-        <option value="leather">Leather (11 + Dex Mod)</option>
-        <option value="chain">Chainmail (13 + Dex Mod)</option>
-        <option value="plate">Plate mail (15)</option>
-        <option value="shield">Add +2 AC with Shield</option>
-    </select>
-    Armors <input type="text" name="attr_char_armor_prof" placeholder="Leather Armor, Shields"/>
+        <div class="header_table">
+            <strong>
+            <div class="divTableBody">
+            <div class="divTableRow">
+                <div class="divTableCell">Ancestry </div>
+                <div class="divTableCell"><input class="header_box" name="attr_char_ancestry" type="text" /></div>
+                <div class="divTableCell">Title </div>
+                <div class="divTableCell"><input class="header_box" name="attr_char_title" type="text" /></div>
+                <div class="divTableCell">Name</div>
+                <div class="divTableCell"><input class="char_name" name="attr_char_name" type="text" /></div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">Diety</div>
+                <div class="divTableCell"><input class="header_box" name="attr_char_diety" type="text" /></div>
+                <div class="divTableCell">Background </div>
+                <div class="divTableCell"><input class="header_box" name="attr_char_background" type="text" /></div>
+                <div class="divTableCell">Class</div>
+                <div class="divTableCell"><input class="header_box" name="attr_char_class" type="text" /></div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">Alignment</div>
+                <div class="divTableCell">
+                    <select class="alignment_dropdown" name="attr_char_alighnment">
+                        <option value="chaotic">Chaotic</option>
+                        <option value="lawful">Lawful</option>
+                        <option value="neutral">Neutral</option>
+                    </select>
+                </div>
+                <div class="divTableCell">Luck Point: <input name="attr_char_luck_point" type="checkbox" />
+                    
+                </div>
+                <div class="divTableCell">
+                    Level <input class="header_number" max="10" min="0" name="attr_char_level" step="1" type="number" />
+                </div>
+                <div class="divTableCell">&nbsp;</div>
+                <div class="divTableCell">
+                    XP Need <input class="header_number" disabled="disabled" name="attr_XP_Need" type="number" value="(@{char_level}*10)" />
+                    Current <input class="header_number" min="0" name="attr_char_xp_current" step="1" type="number" />
+                </div>
+            </div>
+            </div>
+            </strong>
+        </div>
+
+    <span style="font-family: luminari, fantasy; font-size: 20px;">Stats</span>
 
     <div class="stats_table">
         <div class="row">
             <div class="col-6">
                 <table class="StatsTable">
-                    <tr>
-                        <th style="text-align:center">
-                            <button type="roll" 
-                            value="&{template:default}{{name=Rolling for Initiative}}{{Initiative Roll: [[1d20+@{char_DexMod} &{tracker}]]}}" 
-                            class="roll_initiative">Initiative
-                        </button></th>
-                        <th style="text-align:center">Talents and Spells</th>
-                    </tr>
                     <tr>
                         <td>
                             <table class="embedStats" style="background-color:#dfdcc5">
@@ -150,34 +122,93 @@
                             </table>
                         </td>
                         <td>
-                            Weapon Proficiencies <input type="text" name="attr_char_weapon_prof" placeholder="Short Swords"/>
-                            <br>
-                            Attacks
-                            <fieldset class="repeating_attacks">
-                                <button type="roll" name="roll_attack" 
-                                value="&{template:default}{{name=@{atk_name}}}{{Attacking: [[1d20+@{atk_mod}+@{atk_mod_hit}]]}}{{Use for Adv or Dis: [[1d20+@{atk_mod}+@{atk_mod_hit}]]}}{{Damage: [[@{atk_damage}]]}}">
-                            </button>
-                                <input type="text" name="attr_atk_name" value="" class="atk_name">
-                                <select name="attr_atk_mod" class="atk_mod">
-                                    <option value="@{char_StrMod}">STR</option>
-                                    <option value="@{char_DexMod}">DEX</option>
-                                    <option value="@{char_ConMod}">CON</option>
-                                    <option value="@{char_IntMod}">INT</option>
-                                    <option value="@{char_WisMod}">WIS</option>
-                                    <option value="@{char_ChaMod}">CHA</option>
-                                </select>
-                                +
-                                <input type="number" name="attr_atk_mod_hit" placeholder="0" class="atk_mod_hit">
-                                Damage:
-                                <input type="text" name="attr_atk_damage" placeholder="1d6+1" class="atk_damage">
-                              </fieldset>
-                            <br>
-                            <textarea rows="4" cols="55" spellcheck="false" name="attr_char_talents">Other Skills</textarea>
+                            <div class="prof-section">
+                                <strong>
+                                <br>
+                                Language <input class="prof_box" type="text" name="attr_char_languages" placeholder="Common"/>
+                                <br>
+                                Armor <input class="prof_box" type="text" name="attr_char_armor_prof" placeholder="Leather Armor, Shields"/>
+                                <br>
+                                Weapon<input class="weapon_prof_box" type="text" name="attr_char_weapon_prof" placeholder="Short Swords"/>
+                                </strong>
+                            </div>
+                            <div class="combat_table">
+                                <strong>
+                                <div class="divTableBody">
+                                <div class="divTableRow">
+                                    <div class="divTableCell"> 
+                                        <button type="roll" 
+                                                value="&{template:default}{{name=Rolling for Initiative}}{{Initiative Roll: [[1d20+@{char_DexMod} &{tracker}]]}}" 
+                                                class="roll-initiative">Initiative
+                                        </button>
+                                    </div>
+                                    <div class="divTableCell">
+                                        Hit Die
+                                        <br>
+                                        <select class="hd_dropdown" name="attr_char_hd">
+                                            <option value="d4">1d4</option>
+                                            <option value="d6">1d6</option>
+                                            <option value="d8">1d8</option>
+                                            <option value="d10">1d10</option>
+                                            <option value="d12">1d12</option>
+                                        </select>
+                                        <br>
+                                        Max 
+                                        <input type="number" min="1" step="1" name="attr_char_max_hp"/>
+                                    </div>
+                                    <div class="divTableCell"> 
+                                        Current HP
+                                        <br>
+                                        <input type="number" min="0" max="@{char_max_hp}" step="1" name="attr_char_hp" class="char_health_display"/>
+                                    </div>
+                                    <div class="divTableCell">
+                                        <select class="armor_dropdown" name="attr_char_armor">
+                                            <option value="none">None (10 + Dex Mod)</option>
+                                            <option value="leather">Leather (11 + Dex Mod)</option>
+                                            <option value="chain">Chainmail (13 + Dex Mod)</option>
+                                            <option value="plate">Plate mail (15)</option>
+                                            <option value="shield">Add +2 AC with Shield</option>
+                                        </select>
+                                        <br>
+                                        AC
+                                        <br>
+                                        <input type="number" min="0" step="1" name="attr_char_AC" placeholder="10+@{char_DexMod}" class="char_defense"/>
+                                    </div>
+                                </div>
+                                </div>
+                            </strong>
+                            </div>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
+    </div>
+    <br>
+    <div class="freeform_area">
+        <textarea rows="5" spellcheck="false" name="attr_char_talents">Other Skills</textarea>
+    </div>
+    <div class="roll_attacks">
+        Attacks
+        <fieldset class="repeating_attacks">
+            <button type="roll" name="roll_attack" 
+            value="&{template:default}{{name=@{atk_name}}}{{Attacking: [[1d20+@{atk_mod}+@{atk_mod_hit}]]}}{{Use for Adv or Dis: [[1d20+@{atk_mod}+@{atk_mod_hit}]]}}{{Damage: [[@{atk_damage}]]}}">
+        </button>
+            <input type="text" name="attr_atk_name" value="" class="atk_name">
+            <select name="attr_atk_mod" class="atk_mod">
+                <option value="0">-</option>
+                <option value="@{char_StrMod}">STR</option>
+                <option value="@{char_DexMod}">DEX</option>
+                <option value="@{char_ConMod}">CON</option>
+                <option value="@{char_IntMod}">INT</option>
+                <option value="@{char_WisMod}">WIS</option>
+                <option value="@{char_ChaMod}">CHA</option>
+            </select>
+            +
+            <input type="number" name="attr_atk_mod_hit" value="0" class="atk_mod_hit">
+            Damage:
+            <input type="text" name="attr_atk_damage" value="1d6+1" class="atk_damage">
+        </fieldset>
     </div>
 
     <div class="gear">
