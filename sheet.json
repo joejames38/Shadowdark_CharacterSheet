@@ -2,8 +2,6 @@
     "html": "Shadowdark_CharacterSheet.html",
     "css": "Shadowdark_CharacterSheet.css",
     "authors": "joejames38",
-    "roll20userid": "1",
-    "preview": "printablesheet.png",
     "legacy": false,
     "printable": true,
     "instructions":"This is a basic character sheet for Shadowdark RPG by The Arcane Library and follows the instructinos in the free Quick Start Rules."

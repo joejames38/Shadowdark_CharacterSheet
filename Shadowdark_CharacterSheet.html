@@ -9,6 +9,7 @@
     <button class="button-style" type="action" name="act_spells">Spells</button>
     <button class="button-style" type="action" name="act_npc">NPC</button>
 </div>
+<!-- Character Sheet Starts Here -->
 <div class="sheet-character">
     <span style="font-family: luminari, fantasy; font-size: 30px;">Shadowdark RPG</span>
     <br>
@@ -55,338 +56,331 @@
             </div>
             </strong>
         </div>
-
     <span style="font-family: luminari, fantasy; font-size: 20px;">Stats</span>
-
     <div class="stats_table">
-        <div class="row">
-            <div class="col-6">
-                <table class="StatsTable">
-                    <tr>
-                        <td>
-                            <table class="embedStats" style="background-color:#dfdcc5">
-                                <tr>
-                                    <th style="text-align:center">Ability</th>
-                                    <th style="text-align:center">Score</th>
-                                    <th style="text-align:center">Mod</th>
-                                    <th style="text-align:center">Roll</th>
-                                </tr>
-                                <tr>
-                                    <td>STR</td>
-                                    <td><input type="number" min="1" max="19" step="1" name="attr_char_strength" placeholder="10"/></td>
-                                    <td><input type="number" name="attr_char_StrMod" value="[[(floor((@{char_strength}-10)/2))]]" disabled="true"/></td>
-                                    <td><button type="roll" 
-                                        value="&{template:default}{{name=@{char_name} STR Check}}{{Str Check: [[1d20+@{char_StrMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_StrMod}]]}}" 
-                                        name="roll_StrCheck">STR</button></td>
-                                </tr>
-                                <tr>
-                                    <td>DEX</td>
-                                    <td><input type="number" min="1" max="19" step="1" name="attr_char_dexterity" placeholder="10"/></td>
-                                    <td><input type="number" name="attr_char_DexMod" value="[[(floor((@{char_dexterity}-10)/2))]]" disabled="true"/></td>
-                                    <td><button type="roll" 
-                                        value="&{template:default}{{name=@{char_name} DEX Check}}{{Dex Check: [[1d20+@{char_DexMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_DexMod}]]}}" 
-                                        name="roll_DexCheck">DEX</button></td>
-                                </tr>
-                                <tr>
-                                    <td>CON</td>
-                                    <td><input type="number" min="1" max="19" step="1" name="attr_char_constitution" placeholder="10"/></td>
-                                    <td><input type="number" name="attr_char_ConMod" value="[[(floor((@{char_constitution}-10)/2))]]" disabled="true"/></td>
-                                    <td><button type="roll" 
-                                        value="&{template:default}{{name=@{char_name} CON Check}}{{Con Check: [[1d20+@{char_ConMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_ConMod}]]}}"
-                                        name="roll_ConCheck">CON</button></td>
-                                </tr>
-                                <tr>
-                                    <td>INT</td>
-                                    <td><input type="number" min="1" max="19" step="1" name="attr_char_intelligence" placeholder="10"/></td>
-                                    <td><input type="number" name="attr_char_IntMod" value="[[(floor((@{char_intelligence}-10)/2))]]" disabled="true"/></td>
-                                    <td><button type="roll" 
-                                        value="&{template:default}{{name=@{char_name} INT Check}}{{Int Check: [[1d20+@{char_IntMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_IntMod}]]}}"
-                                        name="roll_IntCheck">INT</button></td>
-                                </tr>
-                                <tr>
-                                    <td>WIS</td>
-                                    <td><input type="number" min="1" max="19" step="1" name="attr_char_wisdom" placeholder="10"/></td>
-                                    <td><input type="number" name="attr_char_WisMod" value="[[(floor((@{char_wisdom}-10)/2))]]" disabled="true"/></td>
-                                    <td><button type="roll" 
-                                        value="&{template:default}{{name=@{char_name} WIS Check}}{{Wis Check: [[1d20+@{char_WisMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_WisMod}]]}}"
-                                        name="roll_WisCheck">WIS</button></td>
-                                </tr>
-                                <tr>
-                                    <td>CHA</td>
-                                    <td><input type="number" min="1" max="19" step="1" name="attr_char_charisma" placeholder="10"/></td>
-                                    <td><input type="number" name="attr_char_ChaMod" value="[[(floor((@{char_charisma}-10)/2))]]" disabled="true"/></td>
-                                    <td><button type="roll" 
-                                        value="&{template:default}{{name=@{char_name} CHA Check}}{{Cha Check: [[1d20+@{char_ChaMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_ChaMod}]]}}"
-                                        name="roll_ChaCheck">CHA</button></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td>
-                            <div class="prof-section">
-                                <strong>
-                                <br>
-                                Language <input class="prof_box" type="text" name="attr_char_languages" placeholder="Common"/>
-                                <br>
-                                Armor <input class="prof_box" type="text" name="attr_char_armor_prof" placeholder="Leather Armor, Shields"/>
-                                <br>
-                                Weapon<input class="weapon_prof_box" type="text" name="attr_char_weapon_prof" placeholder="Short Swords"/>
-                                </strong>
-                            </div>
-                            <div class="combat_table">
-                                <strong>
-                                <div class="divTableBody">
-                                <div class="divTableRow">
-                                    <div class="divTableCell"> 
-                                        <button type="roll" 
-                                                value="&{template:default}{{name=Rolling for Initiative}}{{Initiative Roll: [[1d20+@{char_DexMod} &{tracker}]]}}" 
-                                                class="roll-initiative">Initiative
-                                        </button>
-                                    </div>
-                                    <div class="divTableCell">
-                                        Hit Die
-                                        <br>
-                                        <select class="hd_dropdown" name="attr_char_hd">
-                                            <option value="d4">1d4</option>
-                                            <option value="d6">1d6</option>
-                                            <option value="d8">1d8</option>
-                                            <option value="d10">1d10</option>
-                                            <option value="d12">1d12</option>
-                                        </select>
-                                        <br>
-                                        Max 
-                                        <input type="number" min="1" step="1" name="attr_char_max_hp"/>
-                                    </div>
-                                    <div class="divTableCell"> 
-                                        Current HP
-                                        <br>
-                                        <input type="number" min="0" max="@{char_max_hp}" step="1" name="attr_char_hp" class="char_health_display"/>
-                                    </div>
-                                    <div class="divTableCell">
-                                        <select class="armor_dropdown" name="attr_char_armor">
-                                            <option value="none">None (10 + Dex Mod)</option>
-                                            <option value="leather">Leather (11 + Dex Mod)</option>
-                                            <option value="chain">Chainmail (13 + Dex Mod)</option>
-                                            <option value="plate">Plate mail (15)</option>
-                                            <option value="shield">Add +2 AC with Shield</option>
-                                        </select>
-                                        <br>
-                                        AC
-                                        <br>
-                                        <input type="number" min="0" step="1" name="attr_char_AC" placeholder="10+@{char_DexMod}" class="char_defense"/>
-                                    </div>
-                                </div>
-                                </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                    <div class="embedStats_table">
+                        <strong>
+                        <div class="divTableRow">
+                            <div class="statTableCell">Ability</div>
+                            <div class="statTableCell">Score</div>
+                            <div class="statTableCell">Mod</div>
+                            <div class="statTableCell">Roll</div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="statTableCell">STR</div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" min="1" max="19" step="1" name="attr_char_strength" placeholder="10"/></div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" name="attr_char_StrMod" value="[[(floor((@{char_strength}-10)/2))]]" disabled="true"/></div>
+                            <div class="statTableCell"><button type="roll" 
+                                value="&{template:default}{{name=@{char_name} STR Check}}{{Str Check: [[1d20+@{char_StrMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_StrMod}]]}}" 
+                                name="roll_StrCheck">STR</button></div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="statTableCell">DEX</div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" min="1" max="19" step="1" name="attr_char_dexterity" placeholder="10"/></div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" name="attr_char_DexMod" value="[[(floor((@{char_dexterity}-10)/2))]]" disabled="true"/></div>
+                            <div class="statTableCell"><button type="roll" 
+                                value="&{template:default}{{name=@{char_name} DEX Check}}{{Dex Check: [[1d20+@{char_DexMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_DexMod}]]}}" 
+                                name="roll_DexCheck">DEX</button></div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="statTableCell">CON</div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" min="1" max="19" step="1" name="attr_char_constitution" placeholder="10"/></div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" name="attr_char_ConMod" value="[[(floor((@{char_constitution}-10)/2))]]" disabled="true"/></div>
+                            <div class="statTableCell"><button type="roll" 
+                                value="&{template:default}{{name=@{char_name} CON Check}}{{Con Check: [[1d20+@{char_ConMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_ConMod}]]}}"
+                                name="roll_ConCheck">CON</button></div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="statTableCell">INT</div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" min="1" max="19" step="1" name="attr_char_intelligence" placeholder="10"/></div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" name="attr_char_IntMod" value="[[(floor((@{char_intelligence}-10)/2))]]" disabled="true"/></div>
+                            <div class="statTableCell"><button type="roll" 
+                                value="&{template:default}{{name=@{char_name} INT Check}}{{Int Check: [[1d20+@{char_IntMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_IntMod}]]}}"
+                                name="roll_IntCheck">INT</button></div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="statTableCell">WIS</div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" min="1" max="19" step="1" name="attr_char_wisdom" placeholder="10"/></div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" name="attr_char_WisMod" value="[[(floor((@{char_wisdom}-10)/2))]]" disabled="true"/></div>
+                            <div class="statTableCell"><button type="roll" 
+                                value="&{template:default}{{name=@{char_name} WIS Check}}{{Wis Check: [[1d20+@{char_WisMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_WisMod}]]}}"
+                                name="roll_WisCheck">WIS</button></div>
+                        </div>
+                        <div class="divTableRow">
+                            <div class="statTableCell"> CHA</div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" min="1" max="19" step="1" name="attr_char_charisma" placeholder="10"/></div>
+                            <div class="statTableCell"><input class="statBoxInput" type="number" name="attr_char_ChaMod" value="[[(floor((@{char_charisma}-10)/2))]]" disabled="true"/></div>
+                            <div class="statTableCell"><button type="roll" 
+                                value="&{template:default}{{name=@{char_name} CHA Check}}{{Cha Check: [[1d20+@{char_ChaMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_ChaMod}]]}}"
+                                name="roll_ChaCheck">CHA</button></div>
+                        </div>
+                    </strong>
+                    </div>
+                    </div>
+                    <div class="divTableCell">
+                        <div class="prof-section">
+                            <strong>
+                            Language <input class="prof_box" type="text" name="attr_char_languages" placeholder="Common"/>
+                            <br>
+                            Armor <input class="prof_box" type="text" name="attr_char_armor_prof" placeholder="Leather Armor, Shields"/>
+                            <br>
+                            Weapon<input class="weapon_prof_box" type="text" name="attr_char_weapon_prof" placeholder="Short Swords"/>
                             </strong>
+                        </div>
+                        <div class="combat_table">
+                            <strong>
+                            <div class="divTableBody">
+                            <div class="divTableRow">
+                                <div class="divTableCell"> 
+                                    <input type="number" disabled="true" value="@{char_DexMod}" name="attr_char_init" class="char_init_display"/>
+                                    <br>
+                                    <button type="roll" 
+                                            value="&{template:default}{{name=Rolling for Initiative}}{{Initiative Roll: [[1d20+@{char_DexMod} &{tracker}]]}}" 
+                                            class="roll-initiative">Initiative
+                                    </button>
+                                </div>
+                                <div class="divTableCell">
+                                    Hit Die
+                                    <br>
+                                    <select class="hd_dropdown" name="attr_char_hd">
+                                        <option value="d4">1d4</option>
+                                        <option value="d6">1d6</option>
+                                        <option value="d8">1d8</option>
+                                        <option value="d10">1d10</option>
+                                        <option value="d12">1d12</option>
+                                    </select>
+                                    <br>
+                                    Max 
+                                    <input class="char_max_hp_disp" type="number" min="1" step="1" name="attr_char_max_hp"/>
+                                </div>
+                                <div class="divTableCell"> 
+                                    Current HP
+                                    <br>
+                                    <input type="number" min="0" max="@{char_max_hp}" step="1" name="attr_char_hp" class="char_health_display"/>
+                                </div>
+                                <div class="divTableCell">
+                                    AC
+                                    <br>
+                                    <input type="number" min="0" step="1" name="attr_char_AC" placeholder="10+@{char_DexMod}" class="char_defense"/>
+                                    <br>
+                                    <select class="armor_dropdown" name="attr_char_armor">
+                                        <option value="none">None (10 + Dex Mod)</option>
+                                        <option value="leather">Leather (11 + Dex Mod)</option>
+                                        <option value="chain">Chainmail (13 + Dex Mod)</option>
+                                        <option value="plate">Plate mail (15)</option>
+                                        <option value="shield">Add +2 AC with Shield</option>
+                                    </select>
+                                </div>
                             </div>
-                        </td>
-                    </tr>
-                </table>
+                            </div>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+    </div>  
+    <div class="attacks_table">
+        <div class="divTableRow">
+            <div class="divTableCell">
+                <div class="roll_attacks">
+                    <b>Attacks</b>
+                    <fieldset class="repeating_attacks">
+                        <button type="roll" name="roll_attack" 
+                        value="&{template:default}{{name=@{atk_name}}}{{Attacking: [[1d20+@{atk_mod}+@{atk_mod_hit}]]}}{{Use for Adv or Dis: [[1d20+@{atk_mod}+@{atk_mod_hit}]]}}{{Damage: [[@{atk_damage}]]}}">
+                    </button>
+                        <input type="text" name="attr_atk_name" value="" class="atk_name">
+                        <select name="attr_atk_mod" class="atk_mod">
+                            <option value="0">-</option>
+                            <option value="@{char_StrMod}">STR</option>
+                            <option value="@{char_DexMod}">DEX</option>
+                            <option value="@{char_ConMod}">CON</option>
+                            <option value="@{char_IntMod}">INT</option>
+                            <option value="@{char_WisMod}">WIS</option>
+                            <option value="@{char_ChaMod}">CHA</option>
+                        </select>
+                        +
+                        <input type="number" name="attr_atk_mod_hit" value="0" class="atk_mod_hit">
+                        Damage:
+                        <input type="text" name="attr_atk_damage" value="1d6+1" class="atk_damage">
+                    </fieldset>
+                </div>
+            </div>
+            <div class="divTableCell">
+                <div class="freeform_area">
+                    <textarea rows="5" cols="55" spellcheck="false" name="attr_char_talents">Other Skills</textarea>
+                </div>
             </div>
         </div>
     </div>
-    <br>
-    <div class="freeform_area">
-        <textarea rows="5" spellcheck="false" name="attr_char_talents">Other Skills</textarea>
-    </div>
-    <div class="roll_attacks">
-        Attacks
-        <fieldset class="repeating_attacks">
-            <button type="roll" name="roll_attack" 
-            value="&{template:default}{{name=@{atk_name}}}{{Attacking: [[1d20+@{atk_mod}+@{atk_mod_hit}]]}}{{Use for Adv or Dis: [[1d20+@{atk_mod}+@{atk_mod_hit}]]}}{{Damage: [[@{atk_damage}]]}}">
-        </button>
-            <input type="text" name="attr_atk_name" value="" class="atk_name">
-            <select name="attr_atk_mod" class="atk_mod">
-                <option value="0">-</option>
-                <option value="@{char_StrMod}">STR</option>
-                <option value="@{char_DexMod}">DEX</option>
-                <option value="@{char_ConMod}">CON</option>
-                <option value="@{char_IntMod}">INT</option>
-                <option value="@{char_WisMod}">WIS</option>
-                <option value="@{char_ChaMod}">CHA</option>
-            </select>
-            +
-            <input type="number" name="attr_atk_mod_hit" value="0" class="atk_mod_hit">
-            Damage:
-            <input type="text" name="attr_atk_damage" value="1d6+1" class="atk_damage">
-        </fieldset>
-    </div>
-
+    <span style="font-family: luminari, fantasy; font-size: 20px;">Gear</span>
     <div class="gear">
-        <h2 style="font-family: luminari, fantasy;">Gear</h2>
-        GP<input type="number" min="0" step="1" name="attr_char_gp"/>
-        SP<input type="number" min="0" step="1" name="attr_char_sp"/>
-        CP<input type="number" min="0" step="1" name="attr_char_cp"/>
+        <strong>
+        CP<input class="copper_box" type="number" min="0" step="1" name="attr_char_gp"/>
+        SP<input class="silver_box"type="number" min="0" step="1" name="attr_char_sp"/>
+        GP<input class="gold_box"type="number" min="0" step="1" name="attr_char_cp"/>
         Coin Weight <input type="number" name="attr_coinweight" value="floor((@{char_gp}+@{char_sp}+@{char_cp})/100)" disabled="true"/>
         Slots
-        <br>
         Max Carry<input type="number" min="10" step="1" name="attr_max_gs"/>
         Free Carry <input type="text" name="attr_char_freebie" class="free_carry" placeholder="Backpack"/>
-        <table class="GearSlotTable">
-            <tr>
-                <td>1.</td>
-                <td><input type="text" name="attr_char_item1"/></td>
-                <td>11.</td>
-                <td><input type="text" name="attr_char_item11"/></td>
-            </tr>
-            <tr>
-                <td>2.</td>
-                <td><input type="text" name="attr_char_item2"/></td>
-                <td>12.</td>
-                <td><input type="text" name="attr_char_item12"/></td>
-            </tr>
-            <tr>
-                <td>3.</td>
-                <td><input type="text" name="attr_char_item3"/></td>
-                <td>13.</td>
-                <td><input type="text" name="attr_char_item13"/></td>
-            </tr>
-            <tr>
-                <td>4.</td>
-                <td><input type="text" name="attr_char_item4"/></td>
-                <td>14.</td>
-                <td><input type="text" name="attr_char_item14"/></td>
-            </tr>
-            <tr>
-                <td>5.</td>
-                <td><input type="text" name="attr_char_item5"/></td>
-                <td>15.</td>
-                <td><input type="text" name="attr_char_item15"/></td>
-            </tr>
-            <tr>
-                <td>6.</td>
-                <td><input type="text" name="attr_char_item6"/></td>
-                <td>16.</td>
-                <td><input type="text" name="attr_char_item16"/></td>
-            </tr>
-            <tr>
-                <td>7.</td>
-                <td><input type="text" name="attr_char_item7"/></td>
-                <td>17.</td>
-                <td><input type="text" name="attr_char_item17"/></td>
-            </tr>
-            <tr>
-                <td>8.</td>
-                <td><input type="text" name="attr_char_item8"/></td>
-                <td>18.</td>
-                <td><input type="text" name="attr_char_item18"/></td>
-            </tr>
-            <tr>
-                <td>9.</td>
-                <td><input type="text" name="attr_char_item9"/></td>
-                <td>19.</td>
-                <td><input type="text" name="attr_char_item19"/></td>
-            </tr>
-            <tr>
-                <td>10.</td>
-                <td><input type="text" name="attr_char_item10"/></td>
-                <td>20.</td>
-                <td><input type="text" name="attr_char_item20"/></td>
-            </tr>
-        </table>
+        <div class="gear_table">
+            <div class="divTableRow">
+                <div class="divTableCell">
+                    1. <input class="gear_input" type="text" name="attr_char_item1"/>
+                    6. <input class="gear_input" type="text" name="attr_char_item6"/>
+                    11. <input class="gear_input" type="text" name="attr_char_item11"/>
+                    16. <input class="gear_input" type="text" name="attr_char_item16"/>
+                </div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                    2. <input class="gear_input" type="text" name="attr_char_item2"/>
+                    7. <input class="gear_input" type="text" name="attr_char_item7"/>
+                    12. <input class="gear_input" type="text" name="attr_char_item12"/>
+                    17. <input class="gear_input" type="text" name="attr_char_item17"/>
+                </div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                    3. <input class="gear_input" type="text" name="attr_char_item3"/>
+                    8. <input class="gear_input" type="text" name="attr_char_item8"/>
+                    13. <input class="gear_input" type="text" name="attr_char_item13"/>
+                    18. <input class="gear_input" type="text" name="attr_char_item18"/>
+                </div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                    4. <input class="gear_input" type="text" name="attr_char_item4"/>
+                    9. <input class="gear_input" type="text" name="attr_char_item9"/>
+                    14. <input class="gear_input" type="text" name="attr_char_item14"/>
+                    19. <input class="gear_input" type="text" name="attr_char_item19"/>
+                </div>
+            </div>
+            <div class="divTableRow">
+                <div class="divTableCell">
+                    5. <input class="gear_input" type="text" name="attr_char_item5"/>
+                    10. <input class="gear_input" type="text" name="attr_char_item10"/>
+                    15. <input class="gear_input" type="text" name="attr_char_item15"/>
+                    20. <input class="gear_input" type="text" name="attr_char_item20"/>
+                </div>
+            </div>
+        </div>
+        </strong>
     </div>
 </div>
-
+<!-- Spell Sheet Starts Here -->
 <div class="sheet-spells">
-    <h1 style="font-family: luminari, fantasy;">Shadowdark RPG</h1>
+    <span style="font-family: luminari, fantasy; font-size: 30px;">Shadowdark RPG</span>
     <div class="spell_header_table">
-        <table class="spell_table" style="background-color:#f7a3a3">
-            <tr>
-                <th style="text-align:center">Name</th>
-                <th style="text-align:center">Class</th>
-                <th style="text-align:center">Ability Mod</th>
-                <th style="text-align:center">Bonus</th>
-                <th style="text-align:center">Total</th>
-            </tr>
-            <tr>
-                <td><span name="attr_char_name"></span></td>
-                <td><span name="attr_char_class"></span></td>
-                <td>
-                    <select name="attr_spell_atk_mod" class="spell_atk_mod">
-                        <option value="@{char_StrMod}">STR</option>
-                        <option value="@{char_DexMod}">DEX</option>
-                        <option value="@{char_ConMod}">CON</option>
-                        <option value="@{char_IntMod}">INT</option>
-                        <option value="@{char_WisMod}">WIS</option>
-                        <option value="@{char_ChaMod}">CHA</option>
-                    </select>
-                </td>
-                <td>+<input type="number" min="0" step="1" name="attr_spell_mod"/></td>
-                <td>
-                    <input type="number" min="0" max="10" step="1" name="attr_total_spell_mod" disabled="true"
-                    value="@{spell_atk_mod}+@{spell_mod}"/>
-                </td>
-            </tr>
-        </table>
-        <h3>Spells, Wands, Scrolls, and Other Magical Effects</h3>
+        <strong>
+        <div class="divTableBody">
+        <div class="divTableRow">
+            <div class="divTableCell"><span style="font-size: 15px; padding: 2px 80px;">Name </span></div>
+            <div class="divTableCell"><span style="font-size: 15px; padding: 2px 40px;">Class </span></div>
+            <div class="divTableCell">Ability Mod </div>
+            <div class="divTableCell">Spell Atk Bonus </div>
+            <div class="divTableCell">Spell Atk Total </div>
+        </div>
+        <div class="divTableRow">
+            <div class="divTableCell"><span style="font-size: 20px; padding: 2px 20px; background-color: white;" name="attr_char_name"></div>
+            <div class="divTableCell"><span style="font-size: 20px; padding: 2px 20px; background-color: white;" name="attr_char_class"></div>
+            <div class="divTableCell">
+                <select name="attr_spell_atk_mod" class="spell_atk_mod" value="0">
+                    <option value="0">-</option>
+                    <option value="@{char_StrMod}">STR</option>
+                    <option value="@{char_DexMod}">DEX</option>
+                    <option value="@{char_ConMod}">CON</option>
+                    <option value="@{char_IntMod}">INT</option>
+                    <option value="@{char_WisMod}">WIS</option>
+                    <option value="@{char_ChaMod}">CHA</option>
+                </select>
+            </div>
+            <div class="divTableCell">+<input class="header_box" type="number" min="0" step="1" value=0 name="attr_spell_mod"/></div>
+            <div class="divTableCell">
+                <input class="header_box" type="number" min="0" max="10" step="1" name="attr_total_spell_mod" disabled="true"
+                value="@{spell_atk_mod}+@{spell_mod}"/>
+            </div>
+        </div>
+        </div>
+        </strong>
+    </div>
+    <span style="font-family: luminari, fantasy; font-size: 20px;">Spells, Wands, Scrolls, and Other Magical Effects</span>
         <fieldset class="repeating_othermagiceffects">
-            <table class="each_spell_table">
-                <tr>
-                    <th></th>
-                    <th style="text-align:center">Avail</th>
-                    <th style="text-align:center">Level</th>
-                    <th style="text-align:center">Name</th>
-                    <th style="text-align:center">Damage</th>
-                    <th style="text-align:center">Range</th>
-                    <th style="text-align:center">Foc</th>
-                    <th style="text-align:center">Adv</th>
-                    <th style="text-align:center">Duration</th>
-                </tr>
-                <tr>
-                    <td>
-                        <button type="roll" name="roll_magic_effects" 
-                        value="&{template:default}{{name=@{spell_name}}}{{DC: [[10+@{spell_level}]]}}{{Casting: [[1d20+@{total_spell_mod}]]}}{{Use for Adv or Dis: [[1d20+@{total_spell_mod}]]}}{{Damage: [[@{add_spell_damage}]]}}">
-                        Cast</button>
-                    </td>
-                    <td>
+            <div class="each_spell_table">
+                <strong>
+                <div class="divTableBody">
+                <div class="divTableRow">
+                    <div class="divTableCell">&nbsp;</div>
+                    <div class="divTableCell">Avail</span></div>
+                    <div class="divTableCell">Level</div>
+                    <div class="divTableCell">Spell Name</div>
+                    <div class="divTableCell">Damage</div>
+                    <div class="divTableCell">Range</div>
+                    <div class="divTableCell">Foc</div>
+                    <div class="divTableCell">Adv</div>
+                    <div class="divTableCell">Duration</div>
+                </div>
+                <div class="divTableRow">
+                    <div class="divTableCell">
+                        <button type="roll" name="roll_magic_effects" class="cast_spell"
+                        value="&{template:default}{{name=@{spell_name}}}{{DC: [[10+@{spell_level}]]}}{{Casting: [[1d20+@{total_spell_mod}]]}}{{Use for Adv or Dis: [[1d20+@{total_spell_mod}]]}}{{Damage: [[@{add_spell_damage}]]}}">Cast</button>
+                    </div>
+                    <div class="divTableCell">
                         <input type="checkbox" value="1" name="attr_char_spell_avail">
-                    </td>
-                    <td>
+                    </div>
+                    <div class="divTableCell">
                         <input type="number" min="1" max="5" name="attr_spell_level" value="1" class="spell_level">
-                    </td>
-                    <td>
+                    </div>
+                    <div class="divTableCell">
                         <input type="text" name="attr_spell_name" value="" class="spell_name">
-                    </td>
-                    <td>
+                    </div>
+                    <div class="divTableCell">
                         <input type="text" name="attr_add_spell_damage" value="1d4+1" class="add_spell_damage">
-                    </td>
-                    <td>
+                    </div>
+                    <div class="divTableCell">
                         <select name="attr_spell_range" class="spell_range"> 
                             <option value="Self">Self</option>
                             <option value="Close">Close</option>
                             <option value="Near">Near</option>
                             <option value="Far">Far</option>
                         </select>
-                    </td>
-                    <td>
+                    </div>
+                    <div class="divTableCell">
                         <input type="checkbox" value="1" name="attr_char_spell_req_focus">
-                    </td>
-                    <td>
+                    </div>
+                    <div class="divTableCell">
                         <input type="checkbox" value="1" name="attr_char_spell_advantage">
-                    </td>
-                    <td>
+                    </div>
+                    <div class="divTableCell">
                         <input type="text" name="attr_spell_duration" value="" class="spell_duration">
-                    </td>
-                </tr>
-            </table>
-            <table class="spell_descriptors">
-                <tr>
-                    <td>
+                    </div>
+                </div>
+                </div>
+                </strong>
+            </div>
+            <div class="spell_descriptors_table">
+                <strong>
+                <div class="divTableBody">
+                <div class="divTableRow">
+                    <div class="divTableCell">
                         <button type="roll" name="roll_spell_description"value="@{char_spell_description}">Post</button>
-                    </td>
-                    <td>
+                    </div>
+                    <div class="divTableCell">
                         <input type="text" name="attr_char_spell_description" class="char_spell_description" placeholder="Spell Description">
-                    </td>
-                </tr> 
-            </table>
-            <br>
+                    </div>
+                </div>
+                </div>
+                </strong>
+            </div>
           </fieldset>
-    </div>
 </div>
-
+<!-- NPC Sheet Starts Here -->
 <div class="sheet-npc">
-    <h1 style="font-family: luminari, fantasy;">Shadowdark RPG</h1>
-    NPC Name <input type="text" name="attr_npc_name" class="npc_name" value=""/>
-    Level <input type="number" min="0" step="1" name="attr_npc_level" value="1" class="npc_level"/>
+    <span style="font-family: luminari, fantasy; font-size: 30px;">Shadowdark RPG</span>
+    <br>
+    <strong>
+    NPC Name <input type="text" name="attr_npc_name" class="header_box" value="" style="width: 400px;"/>
+    Level <input type="number" min="0" step="1" name="attr_npc_level" value="1" class="header_box"/>
     <br>
     <button type="roll" name="roll_npc_description"value="@{npc_name} @{npc_description}">Post</button>
     <input type="text" name="attr_npc_description" class="npc_description" value=""/>
@@ -397,13 +391,11 @@
         <option value="neutral">Neutral</option>
     </select>
     <button type="roll" 
-                            value="&{template:default}{{name=@{npc_name} Initiative}}{{Initiative Roll: [[1d20+@{npc_DexMod} &{tracker}]]}}" 
-                            class="roll_initiative">Initiative
-                        </button>
+        value="&{template:default}{{name=@{npc_name} Initiative}}{{Initiative Roll: [[1d20+@{npc_DexMod} &{tracker}]]}}" 
+        class="npc_roll_initiative">Initiative
+    </button>
     <b>AC</b><input type="number" min="0" step="1" name="attr_npc_AC" value="10" class="npc_defense"/>
     <b>HP</b><input type="number" min="1" step="1" value=10 name="attr_npc_hp" class="npc_health_display"/>
-    <br>
-    <br>
     Movement: 
     <select class="npc_move_dropdown" name="attr_npc_movement">
         <option value="near">Near</option>
@@ -413,74 +405,88 @@
         <option value="near-swim">Near (swim)</option>
         <option value="near-burrow">Near (burrow)</option>
     </select>
-    <div class="header_table">
-        <table class="embedStats" style="background-color:#dfdcc5">
-            <tr>
-                <th style="text-align:center">Ability</th>
-                <th style="text-align:center">Mod</th>
-                <th style="text-align:center">Roll</th>
-            </tr>
-            <tr>
-                <td>STR</td>
-                <td><input type="number" min="-4" max="4" step="1" name="attr_npc_StrMod" value="0"/></td>
-                <td><button type="roll" 
-                    value="&{template:default}{{name=@{npc_name} STR Check}}{{Str Check: [[1d20+@{npc_StrMod}]]}}{{Use for Adv or Dis: [[1d20+@{npc_StrMod}]]}}" 
-                    name="roll_StrCheck">STR</button></td>
-            </tr>
-            <tr>
-                <td>DEX</td>
-                <td><input type="number" min="-4" max="4" step="1" name="attr_npc_DexMod" value="0"/></td>
-                <td><button type="roll" 
-                    value="&{template:default}{{name=@{npc_name} DEX Check}}{{Dex Check: [[1d20+@{char_DexMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_DexMod}]]}}" 
-                    name="roll_DexCheck">DEX</button></td>
-            </tr>
-            <tr>
-                <td>CON</td>
-                <td><input type="number" min="-4" max="4" step="1" name="attr_npc_ConMod" value="0"/></td>
-                <td><button type="roll" 
-                    value="&{template:default}{{name=@{npc_name} CON Check}}{{Con Check: [[1d20+@{char_ConMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_ConMod}]]}}"
-                    name="roll_ConCheck">CON</button></td>
-            </tr>
-            <tr>
-                <td>INT</td>
-                <td><input type="number" min="-4" max="4" step="1" name="attr_npc_IntMod" value="0"/></td>
-                <td><button type="roll" 
-                    value="&{template:default}{{name=@{npc_name} INT Check}}{{Int Check: [[1d20+@{char_IntMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_IntMod}]]}}"
-                    name="roll_IntCheck">INT</button></td>
-            </tr>
-            <tr>
-                <td>WIS</td>
-                <td><input type="number" min="-4" max="4" step="1" name="attr_npc_WisMod" value="0"/></td>
-                <td><button type="roll" 
-                    value="&{template:default}{{name=@{npc_name} WIS Check}}{{Wis Check: [[1d20+@{char_WisMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_WisMod}]]}}"
-                    name="roll_WisCheck">WIS</button></td>
-            </tr>
-            <tr>
-                <td>CHA</td>
-                <td><input type="number" min="-4" max="4" step="1" name="attr_npc_ChaMod" value="0"/></td>
-                <td><button type="roll" 
-                    value="&{template:default}{{name=@{npc_name} CHA Check}}{{Cha Check: [[1d20+@{char_ChaMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_ChaMod}]]}}"
-                    name="roll_ChaCheck">CHA</button></td>
-            </tr>
-        </table>
-        Features and Abilities: 
-        <fieldset class="repeating_npcfeatures">
-            Feature: <input type="text" name="attr_npc_ability" value="" class="npc_ability">
-        </fieldset>
-        Attacks: <input type="text" name="attr_npc_atk_pattern" class="npc_atk_pattern" value=""/>
-        <fieldset class="repeating_npcattacks">
-            <button type="roll" name="roll_attack" 
-            value="&{template:default}{{name=@{npc_atk_name}}}{{Attacking: [[1d20+@{npc_atk_mod_hit}]]}}{{Use for Adv or Dis: [[1d20+@{npc_atk_mod_hit}]]}}{{Damage: [[@{npc_atk_damage}]]}}">
-        </button>
-            <input type="text" name="attr_npc_atk_name" value="" class="npc_atk_name">
-            To hit:
-            <input type="number" name="attr_npc_atk_mod_hit" value="0" class="npc_atk_mod_hit">
-            Damage:
-            <input type="text" name="attr_npc_atk_damage" value="1d6+1" class="npc_atk_damage">
-          </fieldset>
+    <div class="npc_stat_attack_table">
+        <div class="divTableRow">
+            <div class="divTableCell">
+                <div class="npc_stats_table">
+                    <div class="divTableRow">
+                        <div class="statTableCell">Ability</div>
+                        <div class="statTableCell">Mod</div>
+                        <div class="statTableCell">Roll</div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="statTableCell">
+                            STR
+                        </div>
+                        <div class="statTableCell">
+                            <input type="number" min="-4" max="4" step="1" name="attr_npc_StrMod" value="0"/>
+                        </div>
+                        <div class="statTableCell">
+                            <button type="roll" 
+                            value="&{template:default}{{name=@{npc_name} STR Check}}{{Str Check: [[1d20+@{npc_StrMod}]]}}{{Use for Adv or Dis: [[1d20+@{npc_StrMod}]]}}" 
+                            name="roll_StrCheck">STR</button>
+                        </div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="statTableCell">DEX</div>
+                        <div class="statTableCell"><input type="number" min="-4" max="4" step="1" name="attr_npc_DexMod" value="0"/></div>
+                        <div class="statTableCell"><button type="roll" 
+                            value="&{template:default}{{name=@{npc_name} DEX Check}}{{Dex Check: [[1d20+@{char_DexMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_DexMod}]]}}" 
+                            name="roll_DexCheck">DEX</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="statTableCell">CON</div>
+                        <div class="statTableCell"><input type="number" min="-4" max="4" step="1" name="attr_npc_ConMod" value="0"/></div>
+                        <div class="statTableCell"><button type="roll" 
+                            value="&{template:default}{{name=@{npc_name} CON Check}}{{Con Check: [[1d20+@{char_ConMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_ConMod}]]}}"
+                            name="roll_ConCheck">CON</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="statTableCell">INT</div>
+                        <div class="statTableCell"><input type="number" min="-4" max="4" step="1" name="attr_npc_IntMod" value="0"/></div>
+                        <div class="statTableCell"><button type="roll" 
+                            value="&{template:default}{{name=@{npc_name} INT Check}}{{Int Check: [[1d20+@{char_IntMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_IntMod}]]}}"
+                            name="roll_IntCheck">INT</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="statTableCell">WIS</div>
+                        <div class="statTableCell"><input type="number" min="-4" max="4" step="1" name="attr_npc_WisMod" value="0"/></div>
+                        <div class="statTableCell"><button type="roll" 
+                            value="&{template:default}{{name=@{npc_name} WIS Check}}{{Wis Check: [[1d20+@{char_WisMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_WisMod}]]}}"
+                            name="roll_WisCheck">WIS</button></div>
+                    </div>
+                    <div class="divTableRow">
+                        <div class="statTableCell">CHA</div>
+                        <div class="statTableCell"><input type="number" min="-4" max="4" step="1" name="attr_npc_ChaMod" value="0"/></div>
+                        <div class="statTableCell"><button type="roll" 
+                            value="&{template:default}{{name=@{npc_name} CHA Check}}{{Cha Check: [[1d20+@{char_ChaMod}]]}}{{Use for Adv or Dis: [[1d20+@{char_ChaMod}]]}}"
+                            name="roll_ChaCheck">CHA</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="statTableCell">
+                Features and Abilities: 
+                <fieldset class="repeating_npcfeatures">
+                    Feature: <input type="text" name="attr_npc_ability" value="" class="npc_ability">
+                </fieldset>
+                Attack Pattern: <input type="text" name="attr_npc_atk_pattern" class="npc_atk_pattern" value=""/>
+                <br>
+                Attacks:
+                <fieldset class="repeating_npcattacks">
+                    <button type="roll" name="roll_attack" 
+                    value="&{template:default}{{name=@{npc_atk_name}}}{{Attacking: [[1d20+@{npc_atk_mod_hit}]]}}{{Use for Adv or Dis: [[1d20+@{npc_atk_mod_hit}]]}}{{Damage: [[@{npc_atk_damage}]]}}">
+                </button>
+                    <input type="text" name="attr_npc_atk_name" value="" class="npc_atk_name">
+                    To hit:
+                    <input type="number" name="attr_npc_atk_mod_hit" value="0" class="npc_atk_mod_hit">
+                    Damage:
+                    <input type="text" name="attr_npc_atk_damage" value="1d6+1" class="npc_atk_damage">
+                </fieldset>
+            </div>
+        </div>
     </div>
+    </strong>
 </div>
-
 
 <script type="text/worker">
     const buttonlist = ["character","spells","npc"];

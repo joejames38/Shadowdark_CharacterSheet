@@ -1,5 +1,5 @@
 /* Your sheet CSS file: */
-
+    
 /* Set the min-width so that when the window is resized the look will stay consistant */
 .charsheet {
 	min-width: 800px;
@@ -7,7 +7,7 @@
 
 /* Universal styling applied to all elements of these types */
 textarea {
-    /* resize: vertical; */
+    resize: vertical;
 }
 
 /* Format the toggle buttons */
@@ -53,7 +53,7 @@ button.button-style {
 .divTableCell {
 	/* border: 1px solid #000000; */
 	display: table-cell;
-	padding: 5px 5px;
+	padding: 2px 1px;
     vertical-align: middle;
 }
 .divTableBody {
@@ -90,6 +90,29 @@ input[type=checkbox] {
     transform: scale(1.5);
 }
 
+/* Stats Table and embed proficiencis */
+.stats_table{
+    text-align: center;
+	display: table;
+    width: 100%;
+}
+.embedStats_table{
+    text-align: center;
+	display: table;
+    background-color: bisque;
+}
+.statTableCell {
+	/* border: 1px solid #000000; */
+	display: table-cell;
+	padding: 1px 1px;
+    vertical-align: middle;
+}
+input.statBoxInput {
+    text-align: center;
+    background-color: white;
+    font-size: medium;
+    font-weight: bold;
+}
 /* Proficiency Section */
 .prof-section{
     text-align: center;
@@ -109,29 +132,50 @@ input.weapon_prof_box {
 .combat_table{
     text-align: center;
 	display: table;
-	width: 100%;
     background-color: white;
 }
 button.roll-initiative {
     background-color: green;
     border: 2px solid gray;
-    color: black;
-    padding: 10px 10px;
+    color: green;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     border-radius: 4px;
+}
+input.char_init_display {
+    text-align: center;
+    font-size: x-large;
+    background-color: white;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 10px;
+}
+input.char_max_hp_disp {
+    text-align: center;
+    background-color: white;
+    color:brown;
+    font-size: large;
+    font-weight: bold;
+    width: 100%;
 }
 input.char_health_display {
     text-align: center;
     font-size: x-large;
+    background-color: white;
     color: red;
+    font-weight: bold;
+    width: 100%;
+    padding: 20px 10px;
 }
 input.char_defense {
     text-align: center;
     font-size: x-large;
+    background-color: white;
     color: rgb(184, 158, 13);
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 3px;
 }
 select.hd_dropdown {
     width:auto;
@@ -140,9 +184,13 @@ select.armor_dropdown {
     width:auto;
 }
 
-/* Stats Styling */
-
 /* Attack field Styling */
+.attacks_table{
+    text-align: center;
+	display: table;
+    background-color: white;
+    width: 100%;
+}
 .atk_name{
     width:100px;
 }
@@ -159,15 +207,74 @@ select.atk_mod {
 }
 
 /* Gear Section Styling */
+.gear_table{
+    text-align: center;
+	display: table;
+    background-color: white;
+    width: 100%;
+}
+input.copper_box{
+    text-align: center;
+    font-size: medium;
+    background-color: white;
+    color: rgb(184, 115, 51);
+    font-weight: bold;
+    width: 100%;
+    border-radius: 1px;
+}
+input.silver_box{
+    text-align: center;
+    font-size: medium;
+    background-color: white;
+    color: rgb(156, 156, 156);
+    font-weight: bold;
+    width: 100%;
+    border-radius: 1px;
+}
+input.gold_box{
+    text-align: center;
+    font-size: medium;
+    background-color: white;
+    color: rgb(161, 161, 0);
+    font-weight: bold;
+    width: 100%;
+    border-radius: 1px;
+}
 .free_carry {
-    width:350px;
+    width:250px;
+}
+input.gear_input{
+    width:170px;
 }
 
 /* Styling for Spells Sheet */
+.spell_header_table{
+    text-align: center;
+	display: table;
+	width: 100%;
+    background-color: rgb(209, 245, 244);
+    text-size-adjust: large;
+}
 select.spell_atk_mod {
     width:auto;
 }
-
+.each_spell_table{
+    text-align: center;
+	display: table;
+	width: 100%;
+    background-color: white;
+    text-size-adjust: large;
+}
+.spell_descriptors_table{
+    text-align: center;
+	display: table;
+	width: 100%;
+    background-color: white;
+    text-size-adjust: large;
+}
+button.cast_spell {
+    color: purple;
+}
 select.spell_range {
     width:auto;
 }
@@ -177,7 +284,7 @@ select.spell_dtype {
 }
 
 .spell_name{
-    width:150px;
+    width:220px;
 }
 
 .spell_duration{
@@ -185,35 +292,49 @@ select.spell_dtype {
 }
 
 .char_spell_description{
-    width:550px;
+    width:720px;
 }
 .add_spell_damage{
-    width:88px;
+    width:220px;
 }
 
 /* Styling for NPC Sheet */
 .npc_description{
-    width:550px;
+    width:720px;
 }
-
-button.npc_roll_initiative {
-    color: green;
-}
-
-.npc_ability{
-    width:500px;
-}
-
 input.npc_health_display {
     text-align: center;
     font-size: x-large;
     color: red;
+    background-color: white;
 }
 input.npc_defense {
     text-align: center;
     font-size: x-large;
     color: rgb(184, 158, 13);
+    background-color: white;
 }
 select.npc_alignment_dropdown {
     width:auto;
 }
+button.npc_roll_initiative {
+    color: green;
+}
+.npc_stat_attack_table{
+    text-align: left;
+	display: table;
+    padding: 2px 10px;
+}
+.npc_stats_table{
+    text-align: center;
+	display: table;
+    background-color: bisque;
+}
+.npc_ability{
+    width:550px;
+}
+.npc_atk_pattern{
+    width:500px;
+}
+
+
