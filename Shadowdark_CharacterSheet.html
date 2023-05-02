@@ -2,12 +2,24 @@
     Author: joejame38 
 
     For the Shadowdark RPG by the Arcane Library and submitted with 3pp licensure of rules use. 
+    Source:  https://www.drivethrurpg.com/product/413713/Shadowdark-RPG-Quickstart-Set
+
+    TO DO:
+     - Translation tags and file
+     - Sheetworker for mod calculations. Working, but can add better logic
+     - Better Shadowdark styling - Better Fonts, and Black and white boxes, etc
+     - Maybe add repeating field for gear slots?
+     - Use text area for spells?
+     - Set dynamic popup for NPC tab. 
+     - Set printer friendly code.
+     - Add in some darkmode coding. 
+
  -->
 <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab"  value="character"  />
 <div class="page-buttons">
-    <button class="button-style" type="action" name="act_character">Character</button>
+    <button class="button-style" type="action" name="act_character"><span data-i18n="character">Character</span></button>
     <button class="button-style" type="action" name="act_spells">Spells</button>
-    <button class="button-style" type="action" name="act_npc">NPC</button>
+    <button class="button-style" type="action" name="act_npc"><span data-i18n="non-player-character">NPC</span></button>
 </div>
 <!-- Character Sheet Starts Here -->
 <div class="sheet-character">
@@ -122,11 +134,11 @@
                     <div class="divTableCell">
                         <div class="prof-section">
                             <strong>
-                            Language <input class="prof_box" type="text" name="attr_char_languages" placeholder="Common"/>
+                            Languages:<input class="lang_prof_box" type="text" name="attr_char_languages" placeholder="Common"/>
                             <br>
-                            Armor <input class="prof_box" type="text" name="attr_char_armor_prof" placeholder="Leather Armor, Shields"/>
+                            Armors &nbsp&nbsp&nbsp:<input class="armor_prof_box" type="text" name="attr_char_armor_prof" placeholder="Leather Armor, Shields"/>
                             <br>
-                            Weapon<input class="weapon_prof_box" type="text" name="attr_char_weapon_prof" placeholder="Short Swords"/>
+                            Weapons &nbsp:<input class="weapon_prof_box" type="text" name="attr_char_weapon_prof" placeholder="Short Swords"/>
                             </strong>
                         </div>
                         <div class="combat_table">
@@ -216,9 +228,9 @@
     <span style="font-family: luminari, fantasy; font-size: 20px;">Gear</span>
     <div class="gear">
         <strong>
-        CP<input class="copper_box" type="number" min="0" step="1" name="attr_char_gp"/>
+        CP<input class="copper_box" type="number" min="0" step="1" name="attr_char_cp"/>
         SP<input class="silver_box"type="number" min="0" step="1" name="attr_char_sp"/>
-        GP<input class="gold_box"type="number" min="0" step="1" name="attr_char_cp"/>
+        GP<input class="gold_box"type="number" min="0" step="1" name="attr_char_gp"/>
         Coin Weight <input type="number" name="attr_coinweight" value="floor((@{char_gp}+@{char_sp}+@{char_cp})/100)" disabled="true"/>
         Slots
         Max Carry<input type="number" min="10" step="1" name="attr_max_gs"/>

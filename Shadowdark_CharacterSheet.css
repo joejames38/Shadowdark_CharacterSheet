@@ -18,11 +18,11 @@ button.button-style {
     background-color: rgb(236, 184, 184);
     border: 2px solid gray;
     color: black;
-    padding: 5px 30px;
+    padding: 2px 30px;
     text-align: center;
-    text-decoration: none;
+    text-decoration: bold;
     display: inline-block;
-    font-size: 16px;
+    font-size: 12px;
     border-radius: 4px;
 }
 
@@ -115,17 +115,22 @@ input.statBoxInput {
 }
 /* Proficiency Section */
 .prof-section{
-    text-align: center;
+    text-align: right;
 }
-input.prof_box {
+input.lang_prof_box {
     background-color: white;
     font-weight: bold;
-    width: 500px;
+    width: 480px;
+}
+input.armor_prof_box {
+    background-color: white;
+    font-weight: bold;
+    width: 480px;
 }
 input.weapon_prof_box {
     background-color: white;
     font-weight: bold;
-    width: 500px;
+    width: 480px;
 }
 
 /* Combat Section */
@@ -203,7 +208,7 @@ select.atk_mod {
     width:auto;
 }
 .atk_damage{
-    width:88px;
+    width:80px;
 }
 
 /* Gear Section Styling */
@@ -241,7 +246,7 @@ input.gold_box{
     border-radius: 1px;
 }
 .free_carry {
-    width:250px;
+    width:220px;
 }
 input.gear_input{
     width:170px;
